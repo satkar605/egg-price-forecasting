@@ -82,5 +82,5 @@ Watch a short walkthrough of the project findings here:
 
 3. **Forecast assumes past patterns will continue**: The model assumes that seasonal and structural patterns seen in the past will hold in the future. Unexpected market shocks or policy changes could reduce its predictive accuracy.
 
-_For a detailed walkthrough of the modeling process, validation strategy, and forecasting logic, refer to the technical scripts and visuals provided in the `scripts/` and `visuals/` directories._
+_For a detailed walkthrough of the modeling process, validation strategy, and forecasting logic, refer to the technical scripts provided in requirements.md._
 
