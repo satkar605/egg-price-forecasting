@@ -45,14 +45,14 @@ ARIMA was chosen as the final model based on its superior predictive accuracy ac
 
 # Findings and Interpretations
 1. **Winter price spikes are consistent.** A seasonal trend is clearly visible in the historical data, where prices rise during the colder months and drop in summer. This pattern appears reliably from November through January, making it a key planning window. As shown in the monthly seasonal boxplot below, median prices in December and January are among the highest, with greater variability. This indicates both a recurring spike and higher risk. This insight supports early ordering in Q4 to secure better margins and reduce the need for last minute supplier decisions.
-2. 
+
 ![seasonal_box_plot](https://github.com/user-attachments/assets/deeefcc1-0cb2-46be-837b-fb979d49844d)
 
-3. **Recent volatility breaks the pattern.** Price swings in the last few years are wider and harder to predict, likely driven by external shocks.
+2. **Recent volatility breaks the pattern.** Price swings in the last few years are wider and harder to predict, likely driven by external shocks.
 
-4. **The ARIMA model performed best.** It captured overall trends well but underpredicted sharp increases in late 2024.
+3. **The ARIMA model performed best.** It captured overall trends well but underpredicted sharp increases in late 2024.
 
-5. **Forecast error increased near the end.** Residuals show the model struggled most during recent instability.
+4. **Forecast error increased near the end.** Residuals show the model struggled most during recent instability.
 
 **Key takeaway**: While the model supports short-term planning, a buffer strategy is needed to manage ongoing uncertainty. The fully-generated forecasted is as follows;  
 
@@ -76,3 +76,6 @@ Instead of reactive $0.50 surcharges, use forecast trends to plan incremental pr
 2. **Stationarity testing suggested differencing, but the final model did not apply it**: The Augmented Dickey-Fuller test indicated non-stationarity. However, the best-performing model selected by auto.arima() was ARIMA(4,0,0)(2,0,0)[12], which used no differencing. AR(1) models with and without differencing were also tested but did not outperform this model.
 
 3. **Forecast assumes past patterns will continue**: The model assumes that seasonal and structural patterns seen in the past will hold in the future. Unexpected market shocks or policy changes could reduce its predictive accuracy.
+
+_For a detailed walkthrough of the modeling process, validation strategy, and forecasting logic, refer to the technical scripts and visuals provided in the `scripts/` and `visuals/` directories._
+
