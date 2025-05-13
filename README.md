@@ -9,16 +9,16 @@ This project aims to deliver just that: a monthly egg price forecast to guide pr
 
 # Key Business Questions
 This project was driven by decision-oriented questions focused on operational stability, cost control, and customer experience:
-1. What will egg prices look like over the next 12 months?  
+## 1. What will egg prices look like over the next 12 months?  
 Understanding price direction helps the bakery proactively manage pricing strategies and avoid abrupt menu changes.
 
-2. When are egg prices most likely to spike seasonally?  
+## 2. When are egg prices most likely to spike seasonally?  
 Identifying recurring high-cost months supports smarter bulk ordering and promotional planning.
 
-3. What is the expected range of price volatility, and how should we plan for it?  
+## 3. What is the expected range of price volatility, and how should we plan for it?  
 Forecast intervals give the bakery a risk band—helping decide when to build inventory buffers or secure fixed-price supplier agreements.
 
-4. How reliable is the forecast, and can it be used for budgeting?  
+## 4. How reliable is the forecast, and can it be used for budgeting?  
 The model’s performance on unseen data (2024) validates its usefulness for near-term financial planning
 
 # Data Summary
@@ -27,12 +27,14 @@ The forecast model is built using publicly available economic data from the Fede
 - **Consumer Price Index (CPI) for Eggs**: This inflation index is specific to egg products and was used to adjust nominal prices for inflation. By doing so, the model reflects real price movements over time, enabling more meaningful trend analysis and forward-looking projections.
 
 Together, these data sources provide a credible, inflation-adjusted time series of monthly egg prices from January 1995 through January 2025—spanning over 360 months of price activity. This long historical window improves the model’s ability to recognize seasonal patterns, detect structural breaks, and produce forecasts that are grounded in economic reality. The data required no imputation or cleaning, ensuring integrity and reliability for modeling purposes.  
-*Include the Basic Time Series Plot*
+
+![train_validation_split](https://github.com/user-attachments/assets/f81d2156-2667-4888-99a2-1705d33b2292)
 
 # Analytical Approach
 A careful evaluation of the egg price time series was performed to understand its underlying patterns and volatility. The decomposition chart below breaks the data into four components: observed prices, long-term trend, seasonality, and random fluctuations.
 The trend component highlights periods of steady growth followed by a sharp escalation post-2020. Seasonal patterns are consistent across years, with regular spikes and dips aligned with typical demand cycles. However, the random component shows a clear structural shift in the last five years. Even after removing trend and seasonality, volatility remains high—suggesting short-term shocks are now a more dominant force. This posed a major challenge for accurate forecasting.  
-*Insert the decomposed TS Plot*
+
+![decomposition_plot](https://github.com/user-attachments/assets/8095eca4-60fc-491e-9289-8fdf94cc2c9e)
 
 To address this, multiple time-series forecasting models were tested using a rolling validation approach. Each model was trained on historical data up to December 2023 and evaluated on its ability to predict prices for 2024. Three models were compared:
 - **Naïve Model**: Used as a benchmark.
@@ -42,17 +44,19 @@ To address this, multiple time-series forecasting models were tested using a rol
 ARIMA was chosen as the final model based on its superior predictive accuracy across all validation metrics. Technical steps such as stationarity testing, differencing, and model selection were applied with rigor to ensure reliability. Despite the volatility in recent years, ARIMA was best suited to balance forecast accuracy with model interpretability.
 
 # Findings and Interpretations
-1. **Winter price spikes are consistent.** A seasonal trend is clearly visible in the historical data, where prices rise during the colder months and drop in summer. This pattern appears reliably from November through January, making it a key planning window. As shown in the monthly seasonal boxplot below, median prices in December and January are among the highest, with greater variability. This indicates both a recurring spike and higher risk. This insight supports early ordering in Q4 to secure better margins and reduce the need for last minute supplier decisions.  
-*Integrate the monthly seasonal box-plots*
+1. **Winter price spikes are consistent.** A seasonal trend is clearly visible in the historical data, where prices rise during the colder months and drop in summer. This pattern appears reliably from November through January, making it a key planning window. As shown in the monthly seasonal boxplot below, median prices in December and January are among the highest, with greater variability. This indicates both a recurring spike and higher risk. This insight supports early ordering in Q4 to secure better margins and reduce the need for last minute supplier decisions.
+2. 
+![seasonal_box_plot](https://github.com/user-attachments/assets/deeefcc1-0cb2-46be-837b-fb979d49844d)
 
-2. **Recent volatility breaks the pattern.** Price swings in the last few years are wider and harder to predict, likely driven by external shocks.
+3. **Recent volatility breaks the pattern.** Price swings in the last few years are wider and harder to predict, likely driven by external shocks.
 
-3. **The ARIMA model performed best.** It captured overall trends well but underpredicted sharp increases in late 2024.
+4. **The ARIMA model performed best.** It captured overall trends well but underpredicted sharp increases in late 2024.
 
-4. **Forecast error increased near the end.** Residuals show the model struggled most during recent instability.
+5. **Forecast error increased near the end.** Residuals show the model struggled most during recent instability.
 
 **Key takeaway**: While the model supports short-term planning, a buffer strategy is needed to manage ongoing uncertainty. The fully-generated forecasted is as follows;  
-*Include the final generated forecast here*
+
+![full_egg_price_timeline](https://github.com/user-attachments/assets/4a738af4-1fa0-4bdb-8278-43ec8f0beeb5)
 
 # Business Recommendations
 1. **Order early for November–January to avoid seasonal spikes**: Prices historically peak during these winter months. Advance purchasing for egg-heavy inventory (e.g., quiches, breakfast items) can reduce exposure to price hikes of $0.80–$1.20 per dozen.
