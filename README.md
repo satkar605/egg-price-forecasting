@@ -1,5 +1,7 @@
 # Forecasting Volatile Egg Prices for Procurement Planning
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Tx2gVT9_tvg" frameborder="0" allowfullscreen></iframe>
+
 This project uses time-series forecasting to help Mister Smith’s, a local bakery in Vermillion, SD, manage the impact of volatile egg prices. After a sudden spike forced a $0.50 surcharge on egg-based dishes, the bakery needed a way to anticipate future price changes. By analyzing 30 years of monthly U.S. egg price data, the model delivers forward-looking insights to support better cost planning, supplier negotiations, and pricing decisions.
 
 # Business Challenge
