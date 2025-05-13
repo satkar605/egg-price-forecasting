@@ -1,7 +1,5 @@
 # Forecasting Volatile Egg Prices for Procurement Planning
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Tx2gVT9_tvg" frameborder="0" allowfullscreen></iframe>
-
 This project uses time-series forecasting to help Mister Smith’s, a local bakery in Vermillion, SD, manage the impact of volatile egg prices. After a sudden spike forced a $0.50 surcharge on egg-based dishes, the bakery needed a way to anticipate future price changes. By analyzing 30 years of monthly U.S. egg price data, the model delivers forward-looking insights to support better cost planning, supplier negotiations, and pricing decisions.
 
 # Business Challenge
@@ -71,6 +69,11 @@ ARIMA was chosen as the final model based on its superior predictive accuracy ac
 
 4. **Minimize sudden customer-facing changes**  
 Instead of reactive $0.50 surcharges, use forecast trends to plan incremental price changes that align with expected cost movements. This protects both margin and customer loyalty.
+
+## Presentation
+
+Watch a short walkthrough of the project findings here:  
+[Project Presentation on YouTube](https://youtu.be/Tx2gVT9_tvg)
 
 # Assumptions and Limitations
 1. **No external predictors were used**: The model is based only on historical egg prices. It does not include external factors such as feed costs, transportation, or disease outbreaks, which can significantly affect price movements.
